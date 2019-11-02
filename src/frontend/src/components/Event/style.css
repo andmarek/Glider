@@ -1,0 +1,21 @@
+.event-container{
+    display: flex;
+    background-color: #F7F0F5;
+    flex-direction: column;
+    width: 50%;
+}
+
+.event-footer{
+    padding: .25em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.event-attendees{
+    color: #4281A4;
+}
+
+.event-location{
+    color: #48A9A6;
+}
