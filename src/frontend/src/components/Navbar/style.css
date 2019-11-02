@@ -1,8 +1,25 @@
-.NavBarLinks{
+.Navbar{
+    display: flex;
     padding: 1px;
     float: left;
+    width: 100%;
+    justify-content: space-between;
+    background-color: #D36582;
+    margin: 0;
+    padding: .5em;
+    overflow: hidden;
+    background-color: #333;
+    position: fixed;
 }
-.NavBarLinks .link{
+
+.Navbar img{
+    padding: 0;
+    margin: 0;
+    height: 4em;
+    width: 4em;
+}
+
+.NavbarLinks .link{
     display: block;
     color: #E4DFDA;
     text-align: center;

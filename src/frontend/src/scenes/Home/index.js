@@ -1,11 +1,11 @@
 import React from 'react';
-import stlyes from './style.css';
+import styles from './style.css';
 import Event from '../../components/Event/index.js';
 
 const Home = () => {
     return(
         <div className="home-page">
-            <Event title={'The Good Event'} address={'2700 Lincoln Way'} attendees={365}/>
+            <Event title={'The Good Event'} tags={"Outdoor, swimming, birthday, free"} address={'2700 Lincoln Way'} attendees={365}/>
         </div>
     );
 }

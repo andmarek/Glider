@@ -1,24 +1,22 @@
 import React from 'react';
+import { Link, withRouter} from 'react-router-dom';
 import styles from './style.css' ;
+import logo from './GliderLogo.svg';
 
-const NavComponent = (props) => {
+const Navbar = (props) => {
     return(
-        <nav>
-            <div className="NavBarLinks">
-                <link to='/'>
-                    <div className={"link"+ (props.location.pathname === "/" ? " active": "")}>Home</div>
-                </link>
-                <link to='/signIn'>
-                    <div className={"link"+ (props.location.pathname === "/" ? " active": "")}>Sign In</div>
-                </link>
-                <link to='/Register'>
-                    <div className={"link"+ (props.location.pathname === "/" ? " active": "")}>Register</div>
-                </link>
-            </div>
-        </nav>
+        <div className="Navbar">
+            <img src={logo} alt="Glider logo" />
+            <nav>
+                <div className="NavbarLinks">
+                    <Link style={{textDecoration:'none'}} to='/'>
+                        <div className={"link"+ (props.location.pathname === "/" ? " active": "")}></div>
+                    </Link>
+                </div>
+            </nav>
+        </div>
     );
 
 }
 
-
-export default NavComponent;
+export default withRouter(Navbar);
