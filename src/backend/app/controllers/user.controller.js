@@ -1,4 +1,4 @@
-const User = require('../models/users.model.js');
+const User = require('../models/user.model.js');
 
 exports.create = (req, res) => {
     if (!req.body.content) {
@@ -10,7 +10,6 @@ exports.create = (req, res) => {
     const user = new User({
         username: req.body.username,
         password: req.body.password
-        //date_joined: req.body.date,
     });
 
 
@@ -83,7 +82,7 @@ exports.update = (req, res) => {
     }).catch(err => {
         if (err.kind === 'ObjectId') {
             return res.status(404).send({
-                message: "Note not found with id " + req.params.userId
+                message: "User not found with id " + req.params.userId
             });
         }
         return res.status(500).send({
@@ -97,18 +96,18 @@ exports.delete = (req, res) => {
     .then(user => {
         if(!user) {
             return res.status(404).send({
-                message: "Note not found with id " + req.params.userId
+                message: "User not found with id " + req.params.userId
             });
         }
-        res.send({message: "Note deleted successfully!"});
+        res.send({message: "User deleted successfully!"});
     }).catch(err => {
         if(err.kind === 'ObjectId' || err.name === 'NotFound') {
             return res.status(404).send({
-                message: "Note not found with id " + req.params.userId
+                message: "User not found with id " + req.params.userId
             });                
         }
         return res.status(500).send({
-            message: "Could not delete note with id " + req.params.userId
+            message: "Could not delete user with id " + req.params.userId
         });
     });
 };

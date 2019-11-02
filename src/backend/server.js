@@ -1,5 +1,6 @@
-require('./app/routes/user.routes.js');
-//require('./app/routes/user.routes.js')(app);
+
+const SOCKET_TIME_OUT_MS = 1000000;
+const CONNECTION_TIMEOUT_MS = 1000000;
 
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -11,24 +12,33 @@ const mongoose = require('mongoose');
 
 mongoose.Promise = global.Promise;
 
-
-// Trying to get server to run with less than 30 sec timeout
-
-
 //connect to the db
-mongoose.connect(dbConfig.url, {
-    useNewUrlParser: true, useUnifiedTopology: true
-}).then(() => {
+
+let options = {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    server: {
+        socketOptions: {
+            socketTimeoutMS: SOCKET_TIME_OUT_MS,
+            connectTimeoutMS: CONNECTION_TIMEOUT_MS
+        }
+    } 
+};
+
+mongoose.connect(dbConfig.url, 
+    options
+).then(() => {
     console.log("Successfully connected to the database");
 }).catch(err => {
     console.log('Could not connect to the database. Exiting now...', err);
     process.exit();
 });
 
-///////
 let fs = require("fs");
 
-app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.urlencoded({
+    extended: true
+}))
 
 
 //app.use(bodyParser.json())
@@ -39,8 +49,11 @@ app.put() ('/addUser', (req, res) => {
 });*/
 
 app.get('/', (req, res) => {
-    res.json({"message": "Welcome to our website"});
+    res.json({
+        "message": "Welcome to our website"
+    });
 });
+
 
 /*
 app.put('/putUser', function (req, res) {
@@ -54,6 +67,8 @@ app.get('/listUsers', function (req, res) {
         res.end( data );
     });
 })*/
+
+require('./app/routes/user.routes.js')(app);
 
 let server = app.listen(8081, function () {
     let host = server.address().address
