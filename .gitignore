@@ -1,7 +1,7 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-/src/frontendnode_modules
+/src/frontend/node_modules
 /src/frontend/.pnp
 /src/frontend/.pnp.js
 

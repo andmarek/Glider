@@ -7,9 +7,6 @@
     background-color: #D36582;
     margin: 0;
     padding: .5em;
-    overflow: hidden;
-    background-color: #333;
-    position: fixed;
 }
 
 .Navbar img{
