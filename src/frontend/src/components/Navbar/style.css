@@ -1,0 +1,16 @@
+.NavBarLinks{
+    padding: 1px;
+    float: left;
+}
+.NavBarLinks .link{
+    display: block;
+    color: #E4DFDA;
+    text-align: center;
+    padding: 10px 16px;
+    text-decoration: none;
+
+}
+
+.link:hover{
+    color: #48A9A6;
+}
