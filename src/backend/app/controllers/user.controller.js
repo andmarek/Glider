@@ -2,9 +2,12 @@ const User = require('../models/user.model.js');
 
 exports.create = (req, res) => {
     if (!req.body.content) {
+
+        console.log(req.body);
+/*
         return res.status(400).send({
             message: "User content cannot be empty"
-        });
+        });*/
     }
 
     const user = new User({
@@ -12,6 +15,7 @@ exports.create = (req, res) => {
         password: req.body.password
     });
 
+    console.log("yo " + user.username);
 
     user.save().then(
         data => {
