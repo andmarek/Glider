@@ -13,7 +13,7 @@ const Navbar = (props) => {
             </nav>
             <nav>
                 <div className="NavbarLinks">
-                    <Link style={{textDecoration:'none'}} to='/postevent'>
+                    <Link style={{textDecoration:'none'}} to='/PostEvent'>
                         <div className={"link"+ (props.location.pathname === "/" ? " active": "")}>Post Event</div>
                     </Link>
                 </div>
