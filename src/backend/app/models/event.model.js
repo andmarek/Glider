@@ -6,9 +6,7 @@ const eventSchema = mongoose.Schema({
     eventPosted: Date,
     eventDate: Date,
     eventTags: [{type: String}],
-    eventAttendees: [{type: String}]
+    eventAttendees: [{type: Object}]
 });
-
-//var user = mongoose.model('User', userSchema);
 
 module.exports = mongoose.model('events', eventSchema);

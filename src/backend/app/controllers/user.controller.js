@@ -2,15 +2,12 @@ const User = require('../models/user.model.js');
 
 exports.create = (req, res) => {
     if (!req.body.content) {
-
         console.log(req.body);
-/*
-        return res.status(400).send({
-            message: "User content cannot be empty"
-        });*/
+        // If we have an error posting where you shouldn't be able to
+        //implement a check
     }
 
-    const user = new User({
+    let user = new User({
         username: req.body.username,
         password: req.body.password
     });
@@ -31,7 +28,7 @@ exports.create = (req, res) => {
 
 exports.findAll = (req, res) => {
     user.find()
-        .then(notes => {
+        .then(users => {
             res.send(users);
         }).catch(err => {
             res.status(500).send({
@@ -41,7 +38,7 @@ exports.findAll = (req, res) => {
 };
 
 exports.findOne = (req, res) => {
-    User.findById(req.params.userId).then(
+    user.findById(req.params.userId).then(
         user => {
             if (!user) {
                 return res.status(404).send({
@@ -50,14 +47,16 @@ exports.findOne = (req, res) => {
             }
             res.send(user);
 
+            console.log(user);
+            console.log("past user");
         }).catch(err => {
         if (err.kind === 'ObjectId') {
             return res.status(404).send({
-                message: "User not found with id" + req.params.noteId
+                message: "User not found with id" + req.params.userId
             });
         }
         return res.status(500).send({
-            message: "Error retrieving user with id" + req.params.noteId
+            message: "Error retrieving user with id" + req.params.userId
         });
     });
 };
@@ -69,9 +68,9 @@ exports.update = (req, res) => {
         });
     }
 
-    User.findByIdAndUpdate(req.params.userId, {
-        username: req.body.title,
-        password: req.body.content
+    user.findByIdAndUpdate(req.params.userId, {
+        username: req.body.username,
+        password: req.body.password
     }, {
         new: true
     }).then(user => {
@@ -90,13 +89,13 @@ exports.update = (req, res) => {
             });
         }
         return res.status(500).send({
-            message: "Error updating note with id " + req.params.userId
+            message: "Error updating user with id " + req.params.userId
         });
     })
 };
 
 exports.delete = (req, res) => {
-    User.findByIdAndRemove(req.params.userId)
+    user.findByIdAndRemove(req.params.userId)
     .then(user => {
         if(!user) {
             return res.status(404).send({

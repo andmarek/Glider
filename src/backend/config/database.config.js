@@ -1,3 +1,3 @@
 module.exports = {
-    url: 'mongodb://localhost:8081/glider'
+    url: 'mongodb://localhost:27017/glider'
 }

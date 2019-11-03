@@ -51,6 +51,7 @@ app.get('/', (req, res) => {
 
 
 require('./app/routes/user.routes.js')(app);
+require('./app/routes/event.routes.js')(app);
 
 let server = app.listen(8081, function () {
     let host = server.address().address

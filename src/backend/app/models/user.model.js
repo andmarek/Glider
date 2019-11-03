@@ -1,8 +1,10 @@
 const mongoose = require('mongoose');
 
 const userSchema = mongoose.Schema({
+//    userEmail: String,
     username: String,
-    password: String
+    password: String,
+
    /* date_joined: {
         type: Date,
         default: Date.now
