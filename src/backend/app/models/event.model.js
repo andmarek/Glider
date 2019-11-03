@@ -5,6 +5,7 @@ const eventSchema = mongoose.Schema({
     eventAuthor: String,
     eventPosted: Date,
     eventDate: Date,
+    eventLocation: String,
     eventTags: [{type: String}],
     eventAttendees: [{type: Object}]
 });

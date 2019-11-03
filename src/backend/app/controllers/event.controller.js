@@ -11,8 +11,9 @@ exports.create = (req, res) => {
     let event = new Event({
         eventName: req.body.eventName,
         eventAuthor: req.body.eventAuthor,
-        eventPosted: req.body.eventPosted,
+        eventPosted: Date.now(),
         eventDate: req.body.eventDate,
+        eventLocation: req.body.eventLocation,
         eventTags:req.body.eventTags,
         eventAttendees: req.body.eventAttendees
     });
@@ -206,7 +207,7 @@ exports.update = (req, res) => {
         eventName: req.body.eventName,
         eventAuthor: req.body.eventAuthor,
         eventDate: req.body.eventDate,
-
+        eventLocation: req.body.eventLocation,
         // Update arrays
         $push: {"eventTags": req.body},
         $push: {"eventAttendees": req.body}
