@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link, withRouter} from 'react-router-dom';
 import styles from './style.css';
 
 const Event = (props) => {
@@ -8,11 +9,17 @@ const Event = (props) => {
     for (i = 0; i < res.length; i++){
         link = link + "+" + res[i];
     }
-    console.log(res);
     return(
         <div className="event-container">
-            <div className="event-title">
-                <p>{props.title}</p>
+            <nav>
+                <div className="event-title">
+                    <Link to={{pathname: '/Event/'+props.id, state: props}}>
+                        <div className={"link"+ (props.location.pathname === "/" ? " active": "")}>{props.title}</div>
+                    </Link>
+                </div>
+            </nav>
+            <div className="event-date">
+                <p>{props.date}</p>
             </div>
             <div className="event-tags">
                 <p>{props.tags}</p>
@@ -29,4 +36,4 @@ const Event = (props) => {
     );
 }
 
-export default Event
+export default withRouter(Event)

@@ -6,11 +6,15 @@ import logo from './GliderLogo.svg';
 const Navbar = (props) => {
     return(
         <div className="Navbar">
-            <img src={logo} alt="Glider logo" />
+            <nav>
+                <Link style={{textDecoration:'none'}} to='/'>
+                    <img src={logo} alt="Glider logo" />
+                </Link>
+            </nav>
             <nav>
                 <div className="NavbarLinks">
-                    <Link style={{textDecoration:'none'}} to='/'>
-                        <div className={"link"+ (props.location.pathname === "/" ? " active": "")}></div>
+                    <Link style={{textDecoration:'none'}} to='/postevent'>
+                        <div className={"link"+ (props.location.pathname === "/" ? " active": "")}>Post Event</div>
                     </Link>
                 </div>
             </nav>

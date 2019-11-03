@@ -2,7 +2,7 @@
     display: flex;
     padding: 1px;
     float: left;
-    width: 100%;
+    width: 99%;
     justify-content: space-between;
     background-color: #D36582;
     margin: 0;
@@ -16,15 +16,11 @@
     width: 4em;
 }
 
-.NavbarLinks .link{
+.NavbarLinks a{
     display: block;
     color: #E4DFDA;
     text-align: center;
-    padding: 10px 16px;
+    padding: 1em 1.5em;
     text-decoration: none;
-
-}
-
-.link:hover{
-    color: #48A9A6;
+    font-size: 1.25em;
 }

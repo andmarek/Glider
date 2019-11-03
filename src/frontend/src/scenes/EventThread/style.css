@@ -1,0 +1,79 @@
+.EventThreadWrapper{
+    display:flex;
+    justify-content: center;
+    width: 100%;
+}
+.EventThreadWrapper p{
+    margin: 0;
+    padding: 0;
+}
+
+.EventThread-Header{
+    width: 65%;
+    display:flex;
+    flex-direction:column;
+    background-color: #F7F0F5;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    border-radius: .25em;
+}
+
+.EventThread-Header .top{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.EventThread-Header .top p{
+    margin: .25em;
+}
+
+.EventThread-Header .title{
+    font-size: 2em;
+}
+
+.EventThread-Header .organizer{
+    margin: .5em;
+    margin-left: 2em;
+}
+
+.EventThread-Header .description{
+    margin: .5em;
+    margin-top: .75em;
+    margin-bottom: .75em;
+}
+
+.EventThread-Header .location{
+    margin: .5em;
+}
+.EventThread-Header .location a{
+    color: #48A9A6;
+    text-decoration: none;
+}
+.EventThread-Header .location a:hover{
+    color: #4281A4;
+}
+
+.attendees-list{
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    background-color: #F7F0F5;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    border-radius: .25em;
+    margin-left: 1em;
+    text-align: center;
+}
+.attendees-list .num-attendees{
+    color: #4281A4;
+}
+
+.EventThread-Header .tags{
+    font-size: 1.25em;
+    color: #757575;
+}
+
+
+

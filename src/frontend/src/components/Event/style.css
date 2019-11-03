@@ -34,11 +34,17 @@
     color: #4281A4;
 }
 
-.event-title{
-    font-size: 1.5em;
+.event-title a{
+    font-size: 2em;
+    text-decoration: none;
+    color: black;
 }
 
 .event-tags{
     padding: .25em;
     color: #757575;
+}
+
+.event-date{
+    padding: .25em;
 }
